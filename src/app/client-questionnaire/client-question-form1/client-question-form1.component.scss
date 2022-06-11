@@ -18,6 +18,7 @@
 .form-control {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 mat-radio-button {
@@ -32,4 +33,13 @@ mat-radio-button {
     & button:last-of-type {
         margin-left: auto;
     }
+
+    &--rtl button:last-of-type {
+        margin-right: auto;
+        margin-left: 0;
+    }
+}
+
+input.mat-input-element {
+  background-color: white;
 }

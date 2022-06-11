@@ -32,6 +32,7 @@ export class ClientQuestionnaireComponent implements OnInit {
 
   StepEnum = StepEnum;
   step: StepEnum = StepEnum.GET_CLIENT_ID;
+  rtl = false;
   disabled = false;
   textManager: any;
   loggedInUser!: Doctor | undefined;
@@ -106,6 +107,7 @@ export class ClientQuestionnaireComponent implements OnInit {
   ngOnInit(): void {
     this.loggedInUser = this.authService.getLoggedInUser();
     this.languageService.selectTextManager().subscribe(text => this.textManager = text);
+    this.languageService.selectDirection().subscribe(dir => this.rtl = dir === 'rtl');
     this.getCurrentStep();
 
     const sessionClientHealthCheckForm: any = sessionStorage.getItem('clientHealthCheckForm');
@@ -120,6 +122,12 @@ export class ClientQuestionnaireComponent implements OnInit {
       hasCough: new FormControl(sessionData?.hasCough ?? false),
       hasChronicDiseases: new FormControl(sessionData?.hasChronicDiseases ?? false),
       hasAsthma: new FormControl(sessionData?.hasAsthma ?? false),
+      smoking: new FormControl(sessionData?.smoking ?? ''),
+      smokingYears: new FormControl(sessionData?.smokingYears ?? 0),
+      smokingAmountPerDay: new FormControl(sessionData?.smoking ?? 0),
+      asbestos: new FormControl(sessionData?.asbestos ?? false),
+      alcohol: new FormControl(sessionData?.alcohol ?? false),
+      anxiety: new FormControl(sessionData?.anxiety ?? false),
     });
 
     this.clientHealthCheckForm.valueChanges.pipe(

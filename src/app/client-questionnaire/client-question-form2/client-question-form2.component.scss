@@ -7,7 +7,14 @@
     gap: 2rem;
 }
 
-.questions-wrapper {
+.data-wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5rem;
+}
+
+.smoke-wrapper {
     display: grid;
     width: 100%;
     height: 100%;
@@ -15,9 +22,25 @@
     gap: 2rem;
 }
 
+.questions-wrapper {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: repeat(3, max-content);
+    gap: 2rem;
+}
+
 .form-control {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    & code {
+        font-size: 11px;
+        color: #383838;
+        margin: 10px 0 0;
+        grid-column: 1/-1;
+    }
 }
 
 mat-radio-button {
@@ -32,4 +55,13 @@ mat-radio-button {
     & button:last-of-type {
         margin-left: auto;
     }
+
+    &--rtl button:last-of-type {
+        margin-right: auto;
+        margin-left: 0;
+    }
+}
+
+input.mat-input-element {
+  background-color: white;
 }

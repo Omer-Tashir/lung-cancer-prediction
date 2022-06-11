@@ -30,6 +30,10 @@ export class LanguageService {
         return this.textManager.asObservable();
     }
 
+    selectDirection(): Observable<'rtl' | 'ltr'> {
+        return this.currentDirection.asObservable();
+    }
+
     setLanguage(language: 'he' | 'en'): void {
         this.currentLanguage.next(language);
         this.textManager.next(language === 'he' ? TextManager.he : TextManager.en);

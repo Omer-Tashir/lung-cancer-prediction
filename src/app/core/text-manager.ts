@@ -35,11 +35,25 @@ export class TextManager {
         GET_CLIENT_details_address: 'Address',
         GET_CLIENT_details_medical_history: 'Medical History',
 
-        CLIENT_QUESTION_FORM1_title: 'Client Questionnaire - Part 1',
+        CLIENT_QUESTION_FORM1_title: 'Preliminary questionnaire for the patient',
         CLIENT_QUESTION_FORM1_has_cooling: 'Do you have cooling?',
         CLIENT_QUESTION_FORM1_has_cough: 'Do you have cough?',
         CLIENT_QUESTION_FORM1_has_chronic_diseases: 'Do you suffer from any chronic disease?',
         CLIENT_QUESTION_FORM1_has_asthma: 'Do you suffer from asthma?',
+
+        CLIENT_QUESTION_FORM2_title: 'Following the patient\'s answers it was found that a follow-up questionnaire was needed',
+        CLIENT_QUESTION_FORM2_smoking_title: 'Smoke',
+        CLIENT_QUESTION_FORM2_smoking: 'Smoking',
+        CLIENT_QUESTION_FORM2_not_smoking: 'Not smoking',
+        CLIENT_QUESTION_FORM2_past_smoking: 'Smoked in the past',
+        CLIENT_QUESTION_FORM2_smoking_years: 'Years as an active smoker',
+        CLIENT_QUESTION_FORM2_smoking_amount_per_day: 'Cigarets per day',
+        CLIENT_QUESTION_FORM2_asbestos: 'Do you exposed to asbestos?',
+        CLIENT_QUESTION_FORM2_asbestos_article: 'Asbestos is a substance that originates in rocks and comes in the form of fibers, in order to make sure that the patient is not exposed to asbestos it is necessary to find out in which environment the patient works.',
+        CLIENT_QUESTION_FORM2_alcohol: 'Do you addicted to alcohol?',
+        CLIENT_QUESTION_FORM2_alcohol_article: 'If the patient drinks 4 servings of alcohol at least 3 times a week he is considered an addicted to alcohol',
+        CLIENT_QUESTION_FORM2_anxiety: 'Do you suffer from anxiety?',
+        CLIENT_QUESTION_FORM2_anxiety_article: 'Symptoms of anxiety are extreme cold and heat waves, dizziness, extreme sitting in the mouth, and increased feeling of thirst. A feeling of stagnation and paralysis. Headaches and abdominal pain. Nausea, difficulty breathing, accelerated heartbeat, increased sweating, uncontrollable tremors and a feeling of suffocation and pressure in the upper body',
     };
 
     public static readonly he = {
@@ -77,10 +91,24 @@ export class TextManager {
         GET_CLIENT_details_address: 'כתובת',
         GET_CLIENT_details_medical_history: 'היסטורייה רפואית',
 
-        CLIENT_QUESTION_FORM1_title: 'שאלון למטופל - חלק א׳',
+        CLIENT_QUESTION_FORM1_title: 'שאלון מקדים למטופל',
         CLIENT_QUESTION_FORM1_has_cooling: 'האם יש צינון?',
         CLIENT_QUESTION_FORM1_has_cough: 'האם יש שיעול?',
         CLIENT_QUESTION_FORM1_has_chronic_diseases: 'האם יש מחלות כרוניות?',
         CLIENT_QUESTION_FORM1_has_asthma: 'האם יש קוצר נשימה?',
+
+        CLIENT_QUESTION_FORM2_title: 'בעקבות תשובות המטופל נמצא שיש צורך בשאלון המשך',
+        CLIENT_QUESTION_FORM2_smoking_title: 'עישון',
+        CLIENT_QUESTION_FORM2_smoking: 'מעשן',
+        CLIENT_QUESTION_FORM2_not_smoking: 'לא מעשן',
+        CLIENT_QUESTION_FORM2_past_smoking: 'מעשן לשעבר',
+        CLIENT_QUESTION_FORM2_smoking_years: 'שנים כמעשן פעיל',
+        CLIENT_QUESTION_FORM2_smoking_amount_per_day: 'כמות סיגריות ביום',
+        CLIENT_QUESTION_FORM2_asbestos: 'האם נחשפת לאסבסט?',
+        CLIENT_QUESTION_FORM2_asbestos_article: 'אסבסט הוא חומר אשר מקורו בסלעים ובא בצורת סיבים, על מנת לוודא שהמטופל לא נחשף לאסבסט נדרש לברר באיזה סביבה המטופל עובד',
+        CLIENT_QUESTION_FORM2_alcohol: 'האם אתה מכור לאלכוהול?',
+        CLIENT_QUESTION_FORM2_alcohol_article: 'אם המטופל שותה 4 מנות אלכוהול לפחות 3 פעמים בשבוע הוא נחשב למכור לאלכוהול',
+        CLIENT_QUESTION_FORM2_anxiety: 'האם אתה סובל מחרדות?',
+        CLIENT_QUESTION_FORM2_anxiety_article: 'סימפטומים של חרדה הם גלי קור וחום קיצוניים, סחרחורות, יושב קיצוני בפה, ותחושת צמא מוגברת. תחושת קיפאון ושיתוק. כאבי ראש וכאבי בטן. בחילות, קשיי נשימה, דופק לב מואץ, הזעה מוגברת, רעידות בלתי נשלטות ותחושת מחנק ולחץ בפלג הגוף העליון',
     };
 }

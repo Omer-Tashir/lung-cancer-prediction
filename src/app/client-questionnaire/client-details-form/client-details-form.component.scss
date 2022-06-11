@@ -12,7 +12,8 @@
     width: 100%;
     height: 100%;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(6, max-content);
+    column-gap: 5rem;
 }
 
 .details {
@@ -61,4 +62,13 @@
     & button:last-of-type {
         margin-left: auto;
     }
+
+    &--rtl button:last-of-type {
+        margin-right: auto;
+        margin-left: 0;
+    }
+}
+
+input.mat-input-element {
+  background-color: white;
 }

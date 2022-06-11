@@ -48,7 +48,7 @@
 
         </div>
 
-        <div class="form-footer">
+        <div class="form-footer" [class.form-footer--rtl]="rtl">
             <button [disabled]="disabled" mat-raised-button (click)="onBack()">
                 {{textManager.APP_back_btn}}
             </button>

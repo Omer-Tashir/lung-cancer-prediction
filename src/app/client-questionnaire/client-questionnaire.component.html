@@ -2,6 +2,7 @@
 <ng-container *ngIf="!!loggedInUser && !!textManager">
 
     <app-get-client-form @fadeInOut *ngIf="step === StepEnum.GET_CLIENT_ID" 
+        [rtl]="rtl"
         [loggedInUser]="loggedInUser" 
         [textManager]="textManager" 
         [disabled]="disabled" 
@@ -9,6 +10,7 @@
     </app-get-client-form>
 
     <app-client-details-form @fadeInOut *ngIf="step === StepEnum.APPROVE_CLIENT_PRESONAL_DETAILS && !!client" 
+        [rtl]="rtl"    
         [loggedInUser]="loggedInUser" 
         [textManager]="textManager" 
         [disabled]="disabled" 
@@ -19,6 +21,7 @@
     </app-client-details-form>
 
     <app-client-question-form1 @fadeInOut *ngIf="step === StepEnum.CLIENT_QUESTIONNAIRE_1 && !!client"
+        [rtl]="rtl"    
         [loggedInUser]="loggedInUser" 
         [textManager]="textManager" 
         [disabled]="disabled" 
@@ -30,6 +33,7 @@
     </app-client-question-form1>
 
     <app-client-question-form2 @fadeInOut *ngIf="step === StepEnum.CLIENT_QUESTIONNAIRE_2 && !!client"
+        [rtl]="rtl"    
         [loggedInUser]="loggedInUser" 
         [textManager]="textManager" 
         [disabled]="disabled" 

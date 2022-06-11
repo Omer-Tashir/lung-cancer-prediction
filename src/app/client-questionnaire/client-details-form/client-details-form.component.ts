@@ -10,6 +10,8 @@ import { Doctor } from '../../models/doctor.interface';
 })
 export class ClientDetailsFormComponent implements OnInit {
 
+  @Input() rtl: boolean = false;
+
   @Input() textManager: any;
 
   @Input() loggedInUser!: Doctor;
