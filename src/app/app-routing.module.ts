@@ -3,24 +3,22 @@ import { Router, RouterModule, Routes } from '@angular/router';
 
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './login/login.component';
-import { DoctorLoginComponent } from './login/doctor-login/doctor-login.component';
+import { ClientQuestionnaireComponent } from './client-questionnaire/client-questionnaire.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login/doctor-login',
+    redirectTo: '/login',
     pathMatch: 'full',
   },
   {
     path: 'login',
-    component: LoginComponent,
-    children: [
-      {
-        path: 'doctor-login',
-        component: DoctorLoginComponent
-      },
-    ]
+    component: LoginComponent
+  },
+  {
+    path: 'client-questionnaire',
+    component: ClientQuestionnaireComponent
   },
 ];
 

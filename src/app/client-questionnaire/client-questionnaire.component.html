@@ -1,0 +1,20 @@
+
+<ng-container *ngIf="!!loggedInUser && !!textManager">
+
+    <app-get-client-form *ngIf="step === 0" 
+        [loggedInUser]="loggedInUser" 
+        [textManager]="textManager" 
+        [disabled]="disabled" 
+        (formData)="searchClient($event)">
+    </app-get-client-form>
+
+    <app-client-details-form *ngIf="step === 1 && !!client" 
+        [loggedInUser]="loggedInUser" 
+        [textManager]="textManager" 
+        [disabled]="disabled" 
+        [client]="client"
+        (continue)="step = 2;"
+        (reset)="reset()">
+    </app-client-details-form>
+
+</ng-container>

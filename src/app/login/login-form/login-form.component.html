@@ -2,7 +2,7 @@
 
     <mat-form-field class="form-control">
         <mat-label>{{textManager.LOGIN_email}}</mat-label>
-        <input matInput formControlName="email" type="text" required />
+        <input matInput formControlName="email" type="text" />
 
         <mat-error *ngIf="email?.hasError('required')">
             {{textManager.LOGIN_email_required}}
@@ -15,7 +15,7 @@
 
     <mat-form-field class="form-control">
         <mat-label>{{textManager.LOGIN_password}}</mat-label>
-        <input matInput formControlName="password" type="password" required />
+        <input matInput formControlName="password" type="password" />
         <mat-error *ngIf="password?.hasError('required')">
             {{textManager.LOGIN_password_required}}
         </mat-error>

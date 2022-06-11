@@ -32,7 +32,9 @@ import { ChartsModule } from 'ng2-charts';
 // Shared presentation components and supporting services
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
-import { DoctorLoginComponent } from './login/doctor-login/doctor-login.component';
+import { GetClientFormComponent } from './client-questionnaire/get-client-form/get-client-form.component';
+import { ClientQuestionnaireComponent } from './client-questionnaire/client-questionnaire.component';
+import { ClientDetailsFormComponent } from './client-questionnaire/client-details-form/client-details-form.component';
 
 export const CUSTOM_DATE_FORMAT = {
   parse: {
@@ -51,7 +53,9 @@ export const CUSTOM_DATE_FORMAT = {
     AppComponent,
     LoginComponent,
     LoginFormComponent,
-    DoctorLoginComponent,
+    GetClientFormComponent,
+    ClientQuestionnaireComponent,
+    ClientDetailsFormComponent,
   ],
   imports: [
     CommonModule,

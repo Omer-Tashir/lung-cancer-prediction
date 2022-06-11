@@ -37,7 +37,7 @@ html, body {
 }
 
 html {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 body { 
@@ -110,6 +110,6 @@ td.mat-cell {
   color: white;
 }
 
-.mat-select-arrow, .mat-form-field-appearance-legacy .mat-form-field-label, .mat-select-value-text, .mat-option-text {
+.mat-select-arrow, .mat-form-field-appearance-legacy .mat-form-field-label, .mat-select-value-text, .mat-option-text, .mat-input-element:disabled, .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
   color: #383838; 
 }

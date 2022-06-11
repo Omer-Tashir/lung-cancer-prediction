@@ -1,7 +1,5 @@
 <div class="app-content">
 
-  <router-outlet></router-outlet>
-
   <mat-form-field class="change-language">
     <mat-label>{{textManager.APP_select_language}}</mat-label>
     <mat-select [(value)]="selectedLanguage" (selectionChange)="changeLanguage($event.value)">
@@ -9,5 +7,7 @@
       <mat-option value="he">עברית</mat-option>
     </mat-select>
   </mat-form-field>
+
+  <router-outlet></router-outlet>
 
 </div>

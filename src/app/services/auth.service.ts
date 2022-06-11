@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 
 import { LanguageService } from '../core/language-service';
 import { DatabaseService } from './database.service';
+import { Doctor } from '../models/doctor.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -34,8 +35,18 @@ export class AuthService {
             }),
             filter(res => !!res),
             switchMap(() => this.db.login(email)),
-            tap(res => sessionStorage.setItem('logged_in_user', JSON.stringify(res)))
+            tap(res => sessionStorage.setItem('logged_in_user', JSON.stringify(res))),
+            tap(() => this.router.navigate(['client-questionnaire']))
         ).subscribe();
+    }
+
+    getLoggedInUser(): Doctor | undefined {
+        const user = sessionStorage.getItem('logged_in_user');
+        if (user) {
+            return JSON.parse(user);
+        }
+
+        return undefined;
     }
 
     logout(error?: HttpErrorResponse | undefined) {
