@@ -1,0 +1,29 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="form-control">
+        <mat-label>{{textManager.LOGIN_email}}</mat-label>
+        <input matInput formControlName="email" type="text" required />
+
+        <mat-error *ngIf="email?.hasError('required')">
+            {{textManager.LOGIN_email_required}}
+        </mat-error>
+
+        <mat-error *ngIf="email?.hasError('email')">
+            {{textManager.LOGIN_email_invalid}}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-control">
+        <mat-label>{{textManager.LOGIN_password}}</mat-label>
+        <input matInput formControlName="password" type="password" required />
+        <mat-error *ngIf="password?.hasError('required')">
+            {{textManager.LOGIN_password_required}}
+        </mat-error>
+    </mat-form-field>
+
+    <div class="form-footer">
+        <button [disabled]="form.invalid" mat-raised-button type="submit">
+            {{textManager.LOGIN_enter_btn}}
+        </button>
+    </div>
+</form>

@@ -1,0 +1,33 @@
+:host {
+    font-size: 1.6rem;
+}
+
+button {
+  border-radius: 20px;
+  padding: 0 50px;
+}
+
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 200px;
+  width: 300px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.form-footer {
+    margin-top: 2rem;
+}
+
+mat-radio-group {
+    margin: 4rem 0 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
