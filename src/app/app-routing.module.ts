@@ -4,6 +4,7 @@ import { Router, RouterModule, Routes } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './login/login.component';
 import { ClientQuestionnaireComponent } from './client-questionnaire/client-questionnaire.component';
+import { isLoggedInGuard } from './services/auth.guard';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'client-questionnaire',
-    component: ClientQuestionnaireComponent
+    component: ClientQuestionnaireComponent,
+    canActivate: [isLoggedInGuard]
   },
 ];
 
@@ -30,7 +32,6 @@ export class AppRoutingModule {
   constructor(private router: Router, private authService: AuthService) {
     this.router.errorHandler = (error: any) => {
       console.log(error);
-      alert(error);
       this.authService.logout();
     };
   }

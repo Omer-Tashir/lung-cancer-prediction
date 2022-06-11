@@ -1,0 +1,58 @@
+<ng-container *ngIf="!!client">
+
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <h2>{{textManager.CLIENT_QUESTION_FORM1_title}}</h2>
+
+        <div class="questions-wrapper">
+
+            <div class="form-control">
+                <mat-label>- {{textManager.CLIENT_QUESTION_FORM1_has_cooling}}</mat-label>
+                <mat-radio-group formControlName="hasCooling">
+                    <mat-radio-button value="false">{{textManager.APP_no}}</mat-radio-button>
+                    <mat-radio-button value="true">{{textManager.APP_yes}}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div class="form-control">
+                <mat-label>- {{textManager.CLIENT_QUESTION_FORM1_has_cough}}</mat-label>
+                <mat-radio-group formControlName="hasCough">
+                    <mat-radio-button value="false">{{textManager.APP_no}}</mat-radio-button>
+                    <mat-radio-button value="true">{{textManager.APP_yes}}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div class="form-control">
+                <mat-label>- {{textManager.CLIENT_QUESTION_FORM1_has_chronic_diseases}}</mat-label>
+                <mat-radio-group formControlName="hasChronicDiseases">
+                    <mat-radio-button value="false">{{textManager.APP_no}}</mat-radio-button>
+                    <mat-radio-button value="true">{{textManager.APP_yes}}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div class="form-control">
+                <mat-label>- {{textManager.CLIENT_QUESTION_FORM1_has_asthma}}</mat-label>
+                <mat-radio-group formControlName="hasAsthma">
+                    <mat-radio-button value="false">{{textManager.APP_no}}</mat-radio-button>
+                    <mat-radio-button value="true">{{textManager.APP_yes}}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+        </div>
+
+        <div class="form-footer">
+            <button [disabled]="disabled" mat-raised-button (click)="onBack()">
+                {{textManager.APP_back_btn}}
+            </button>
+            
+            <button [disabled]="form.invalid || disabled" mat-raised-button type="submit">
+                {{textManager.APP_continue_btn}}
+            </button>
+
+            <button [disabled]="disabled" mat-raised-button (click)="onReset()" color="warn">
+                {{textManager.APP_reset_btn}}
+            </button>
+        </div>
+    </form>
+
+</ng-container>

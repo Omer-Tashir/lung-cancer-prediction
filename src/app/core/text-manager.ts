@@ -5,6 +5,12 @@ export class TextManager {
         APP_admin: 'Admin',
         APP_doctor: 'Doctor',
         APP_client: 'Client',
+        APP_back_btn: 'Back',
+        APP_confirm_btn: 'Confirm',
+        APP_continue_btn: 'Continue',
+        APP_reset_btn: 'Back to menu',
+        APP_no: 'No',
+        APP_yes: 'Yes',
 
         LOGIN_title: 'Lung Cancer Prediction Project',
         LOGIN_email: 'Email',
@@ -19,10 +25,7 @@ export class TextManager {
         GET_CLIENT_title: 'Register new client',
         GET_CLIENT_id: 'Enter client personal id',
         GET_CLIENT_id_required: 'Client personal id is required',
-        GET_CLIENT_confirm_btn: 'Continue',
-        GET_CLIENT_continue_btn: 'Continue',
         GET_CLIENT_client_not_found: 'Client wasn\'t found for the given id',
-        GET_CLIENT_reset_btn: 'Back to menu',
         GET_CLIENT_details_title: 'Client details',
         GET_CLIENT_details_id: 'ID',
         GET_CLIENT_details_first_name: 'First Name',
@@ -31,6 +34,12 @@ export class TextManager {
         GET_CLIENT_details_age: 'Age',
         GET_CLIENT_details_address: 'Address',
         GET_CLIENT_details_medical_history: 'Medical History',
+
+        CLIENT_QUESTION_FORM1_title: 'Client Questionnaire - Part 1',
+        CLIENT_QUESTION_FORM1_has_cooling: 'Do you have cooling?',
+        CLIENT_QUESTION_FORM1_has_cough: 'Do you have cough?',
+        CLIENT_QUESTION_FORM1_has_chronic_diseases: 'Do you suffer from any chronic disease?',
+        CLIENT_QUESTION_FORM1_has_asthma: 'Do you suffer from asthma?',
     };
 
     public static readonly he = {
@@ -38,6 +47,12 @@ export class TextManager {
         APP_admin: 'מנהל',
         APP_doctor: 'דוקטור',
         APP_client: 'לקוח',
+        APP_back_btn: 'חזור',
+        APP_confirm_btn: 'אישור',
+        APP_continue_btn: 'המשך',
+        APP_reset_btn: 'חזור לתפריט חיפוש',
+        APP_no: 'לא',
+        APP_yes: 'כן',
 
         LOGIN_title: 'פרוייקט לחיזוי סרטן ריאות',
         LOGIN_email: 'אימייל',
@@ -52,10 +67,7 @@ export class TextManager {
         GET_CLIENT_title: 'קליטת פציינט חדש',
         GET_CLIENT_id: 'הכנס מספר תעודת זהות של פציינט',
         GET_CLIENT_id_required: 'חובה להזין תעודת זהות של פציינט',
-        GET_CLIENT_confirm_btn: 'אישור',
-        GET_CLIENT_continue_btn: 'המשך',
         GET_CLIENT_client_not_found: 'לא נמצא פציינט עבור תעודת הזהות שהוקלדה',
-        GET_CLIENT_reset_btn: 'חזור לתפריט חיפוש',
         GET_CLIENT_details_title: 'פרטי המטופל',
         GET_CLIENT_details_id: 'תעודת זהות',
         GET_CLIENT_details_first_name: 'שם פרטי',
@@ -64,5 +76,11 @@ export class TextManager {
         GET_CLIENT_details_age: 'גיל',
         GET_CLIENT_details_address: 'כתובת',
         GET_CLIENT_details_medical_history: 'היסטורייה רפואית',
+
+        CLIENT_QUESTION_FORM1_title: 'שאלון למטופל - חלק א׳',
+        CLIENT_QUESTION_FORM1_has_cooling: 'האם יש צינון?',
+        CLIENT_QUESTION_FORM1_has_cough: 'האם יש שיעול?',
+        CLIENT_QUESTION_FORM1_has_chronic_diseases: 'האם יש מחלות כרוניות?',
+        CLIENT_QUESTION_FORM1_has_asthma: 'האם יש קוצר נשימה?',
     };
 }

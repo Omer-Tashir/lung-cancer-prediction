@@ -1,6 +1,6 @@
 <ng-container *ngIf="!!client">
 
-    <form @fadeInOut class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
 
         <h2>{{textManager.GET_CLIENT_details_title}}</h2>
 
@@ -49,12 +49,16 @@
         </div>
 
         <div class="form-footer">
-            <button [disabled]="form.invalid || disabled" mat-raised-button type="submit">
-                {{textManager.GET_CLIENT_continue_btn}}
+            <button [disabled]="disabled" mat-raised-button (click)="onBack()">
+                {{textManager.APP_back_btn}}
             </button>
 
-            <button [disabled]="disabled" mat-raised-button (click)="onReset()">
-                {{textManager.GET_CLIENT_reset_btn}}
+            <button [disabled]="form.invalid || disabled" mat-raised-button type="submit">
+                {{textManager.APP_continue_btn}}
+            </button>
+
+            <button [disabled]="disabled" mat-raised-button (click)="onReset()" color="warn">
+                {{textManager.APP_reset_btn}}
             </button>
         </div>
     </form>

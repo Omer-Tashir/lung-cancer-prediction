@@ -1,20 +1,43 @@
 
 <ng-container *ngIf="!!loggedInUser && !!textManager">
 
-    <app-get-client-form *ngIf="step === 0" 
+    <app-get-client-form @fadeInOut *ngIf="step === StepEnum.GET_CLIENT_ID" 
         [loggedInUser]="loggedInUser" 
         [textManager]="textManager" 
         [disabled]="disabled" 
         (formData)="searchClient($event)">
     </app-get-client-form>
 
-    <app-client-details-form *ngIf="step === 1 && !!client" 
+    <app-client-details-form @fadeInOut *ngIf="step === StepEnum.APPROVE_CLIENT_PRESONAL_DETAILS && !!client" 
         [loggedInUser]="loggedInUser" 
         [textManager]="textManager" 
         [disabled]="disabled" 
         [client]="client"
-        (continue)="step = 2;"
+        (back)="setStep(StepEnum.GET_CLIENT_ID);"
+        (continue)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_1);"
         (reset)="reset()">
     </app-client-details-form>
+
+    <app-client-question-form1 @fadeInOut *ngIf="step === StepEnum.CLIENT_QUESTIONNAIRE_1 && !!client"
+        [loggedInUser]="loggedInUser" 
+        [textManager]="textManager" 
+        [disabled]="disabled" 
+        [client]="client"
+        [form]="clientHealthCheckForm"
+        (continue)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_2);"
+        (back)="setStep(StepEnum.APPROVE_CLIENT_PRESONAL_DETAILS);"
+        (reset)="reset()">
+    </app-client-question-form1>
+
+    <app-client-question-form2 @fadeInOut *ngIf="step === StepEnum.CLIENT_QUESTIONNAIRE_2 && !!client"
+        [loggedInUser]="loggedInUser" 
+        [textManager]="textManager" 
+        [disabled]="disabled" 
+        [client]="client"
+        [form]="clientHealthCheckForm"
+        (continue)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_3);"
+        (back)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_1);"
+        (reset)="reset()">
+    </app-client-question-form2>
 
 </ng-container>

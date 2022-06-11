@@ -15,37 +15,7 @@ export class isLoggedInGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
-      !!sessionStorage.getItem('user') ? resolve(true) : reject();
-    });
-  }
-}
-
-@Injectable({
-  providedIn: 'root',
-})
-export class isDoctorGuard implements CanActivate {
-  constructor() {}
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Promise<boolean> {
-    return new Promise<boolean>((resolve, reject) => {
-      !!sessionStorage.getItem('doctor') ? resolve(true) : reject();
-    });
-  }
-}
-
-@Injectable({
-  providedIn: 'root',
-})
-export class isAdminGuard implements CanActivate {
-  constructor() { }
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Promise<boolean> {
-    return new Promise<boolean>((resolve, reject) => {
-      !!sessionStorage.getItem('admin') ? resolve(true) : reject();
+      !!sessionStorage.getItem('logged_in_user') ? resolve(true) : reject();
     });
   }
 }

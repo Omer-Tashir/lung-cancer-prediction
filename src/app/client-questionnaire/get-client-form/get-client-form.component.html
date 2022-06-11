@@ -1,6 +1,6 @@
 <ng-container *ngIf="!!loggedInUser">
 
-    <form @fadeInOut class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
         
         <h2>{{textManager.GET_CLIENT_title}}</h2>
 
@@ -15,7 +15,7 @@
     
         <div class="form-footer">
             <button [disabled]="form.invalid || disabled" mat-raised-button type="submit">
-                {{textManager.GET_CLIENT_confirm_btn}}
+                {{textManager.APP_confirm_btn}}
             </button>
         </div>
     </form>

@@ -10,3 +10,15 @@
     margin: 15px auto 0;
     width: 150px;
 }
+
+mat-option {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+mat-option img {
+    width: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
+    border-radius: 50%;
+}

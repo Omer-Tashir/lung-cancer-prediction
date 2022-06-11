@@ -1,4 +1,3 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Doctor } from '../../models/doctor.interface';
@@ -6,18 +5,7 @@ import { Doctor } from '../../models/doctor.interface';
 @Component({
   selector: 'app-get-client-form',
   templateUrl: './get-client-form.component.html',
-  styleUrls: ['./get-client-form.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state('in', style({opacity: 1})),
-      transition(':enter', [
-        style({opacity: 0}),
-        animate(600)
-      ]),
-      transition(':leave',
-        animate(600, style({opacity: 0})))
-    ])
-  ]
+  styleUrls: ['./get-client-form.component.scss']
 })
 export class GetClientFormComponent implements OnInit {
 

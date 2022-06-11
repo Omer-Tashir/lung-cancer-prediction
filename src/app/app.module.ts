@@ -35,6 +35,8 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
 import { GetClientFormComponent } from './client-questionnaire/get-client-form/get-client-form.component';
 import { ClientQuestionnaireComponent } from './client-questionnaire/client-questionnaire.component';
 import { ClientDetailsFormComponent } from './client-questionnaire/client-details-form/client-details-form.component';
+import { ClientQuestionForm1Component } from './client-questionnaire/client-question-form1/client-question-form1.component';
+import { ClientQuestionForm2Component } from './client-questionnaire/client-question-form2/client-question-form2.component';
 
 export const CUSTOM_DATE_FORMAT = {
   parse: {
@@ -56,6 +58,8 @@ export const CUSTOM_DATE_FORMAT = {
     GetClientFormComponent,
     ClientQuestionnaireComponent,
     ClientDetailsFormComponent,
+    ClientQuestionForm1Component,
+    ClientQuestionForm2Component,
   ],
   imports: [
     CommonModule,

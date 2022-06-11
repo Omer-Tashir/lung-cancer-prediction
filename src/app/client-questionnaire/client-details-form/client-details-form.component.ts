@@ -1,24 +1,12 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Client } from 'src/app/models/client.interface';
 import { Doctor } from '../../models/doctor.interface';
 
 @Component({
   selector: 'app-client-details-form',
   templateUrl: './client-details-form.component.html',
-  styleUrls: ['./client-details-form.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state('in', style({opacity: 1})),
-      transition(':enter', [
-        style({opacity: 0}),
-        animate(600)
-      ]),
-      transition(':leave',
-        animate(600, style({opacity: 0})))
-    ])
-  ]
+  styleUrls: ['./client-details-form.component.scss']
 })
 export class ClientDetailsFormComponent implements OnInit {
 
@@ -29,6 +17,8 @@ export class ClientDetailsFormComponent implements OnInit {
   @Input() client!: Client;
 
   @Input() disabled: boolean = false;
+
+  @Output() back: EventEmitter<void> = new EventEmitter();
 
   @Output() continue: EventEmitter<void> = new EventEmitter();
 
@@ -52,6 +42,10 @@ export class ClientDetailsFormComponent implements OnInit {
     });
   }
 
+  onBack() {
+    this.back.emit();
+  }
+
   onSubmit() {
     this.continue.emit();
   }
@@ -60,4 +54,3 @@ export class ClientDetailsFormComponent implements OnInit {
     this.reset.emit();
   }
 }
-
