@@ -3,8 +3,9 @@ import { Router, RouterModule, Routes } from '@angular/router';
 
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './login/login.component';
-import { ClientQuestionnaireComponent } from './client-questionnaire/client-questionnaire.component';
 import { isLoggedInGuard } from './services/auth.guard';
+import { ReportsComponent } from './reports/reports.component';
+import { ClientQuestionnaireComponent } from './client-questionnaire/client-questionnaire.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'reports',
+    component: ReportsComponent,
+    canActivate: [isLoggedInGuard]
   },
   {
     path: 'client-questionnaire',

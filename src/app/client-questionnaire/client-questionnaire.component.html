@@ -39,9 +39,21 @@
         [disabled]="disabled" 
         [client]="client"
         [form]="clientHealthCheckForm"
-        (continue)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_3);"
+        (continue)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_RESULT);"
         (back)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_1);"
         (reset)="reset()">
     </app-client-question-form2>
+
+    <app-client-question-form-result @fadeInOut *ngIf="step === StepEnum.CLIENT_QUESTIONNAIRE_RESULT && !!client"
+        [rtl]="rtl"    
+        [loggedInUser]="loggedInUser" 
+        [textManager]="textManager" 
+        [disabled]="disabled" 
+        [client]="client"
+        [form]="clientHealthCheckForm"
+        (continue)="goToReports()"
+        (back)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_2);"
+        (reset)="reset()">
+    </app-client-question-form-result>
 
 </ng-container>

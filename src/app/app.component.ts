@@ -21,7 +21,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.selectedLanguage = this.languageService.language;
+    const sessionLanguage = sessionStorage.getItem('language');
+    if (sessionLanguage) {
+      const language = JSON.parse(sessionLanguage);
+      this.changeLanguage(language);
+      this.selectedLanguage = language;
+    }
+    else {
+      this.selectedLanguage = this.languageService.language;
+    }
+    
     this.languageService.selectTextManager().subscribe(text => this.textManager = text);
   }
 }

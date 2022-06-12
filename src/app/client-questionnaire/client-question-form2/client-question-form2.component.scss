@@ -36,15 +36,16 @@
     align-items: center;
 
     & code {
-        font-size: 11px;
+        font-size: 13px;
         color: #383838;
         margin: 10px 0 0;
         grid-column: 1/-1;
+        line-height: 1.5;
     }
 }
 
 mat-radio-button {
-    margin: 0 5px;
+    margin: 0 5px 5px;
 }
 
 .form-footer {

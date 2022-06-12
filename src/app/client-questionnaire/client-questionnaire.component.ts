@@ -10,6 +10,7 @@ import { ClientService } from '../core/client-service';
 import { LanguageService } from '../core/language-service';
 import { DatabaseService } from '../services/database.service';
 import { StepEnum } from '../models/step.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-questionnaire',
@@ -40,6 +41,7 @@ export class ClientQuestionnaireComponent implements OnInit {
   clientHealthCheckForm!: FormGroup;
 
   constructor(
+    private readonly route: Router,
     private readonly db: DatabaseService,
     private readonly authService: AuthService,
     private readonly clientService: ClientService,
@@ -104,6 +106,10 @@ export class ClientQuestionnaireComponent implements OnInit {
     sessionStorage.removeItem('clientHealthCheckForm');
   }
 
+  goToReports(): void {
+    this.route.navigate(['reports']);
+  }
+
   ngOnInit(): void {
     this.loggedInUser = this.authService.getLoggedInUser();
     this.languageService.selectTextManager().subscribe(text => this.textManager = text);
@@ -124,7 +130,7 @@ export class ClientQuestionnaireComponent implements OnInit {
       hasAsthma: new FormControl(sessionData?.hasAsthma ?? false),
       smoking: new FormControl(sessionData?.smoking ?? ''),
       smokingYears: new FormControl(sessionData?.smokingYears ?? 0),
-      smokingAmountPerDay: new FormControl(sessionData?.smoking ?? 0),
+      smokingAmountPerDay: new FormControl(sessionData?.smokingAmountPerDay ?? 0),
       asbestos: new FormControl(sessionData?.asbestos ?? false),
       alcohol: new FormControl(sessionData?.alcohol ?? false),
       anxiety: new FormControl(sessionData?.anxiety ?? false),

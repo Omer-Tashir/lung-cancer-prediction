@@ -35,6 +35,7 @@ export class LanguageService {
     }
 
     setLanguage(language: 'he' | 'en'): void {
+        sessionStorage.setItem('language', JSON.stringify(language));
         this.currentLanguage.next(language);
         this.textManager.next(language === 'he' ? TextManager.he : TextManager.en);
         this.setDirection(language === 'he' ? 'rtl' : 'ltr');

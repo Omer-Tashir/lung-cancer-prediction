@@ -5,12 +5,13 @@ export class TextManager {
         APP_admin: 'Admin',
         APP_doctor: 'Doctor',
         APP_client: 'Client',
+        APP_no: 'No',
+        APP_yes: 'Yes',
         APP_back_btn: 'Back',
         APP_confirm_btn: 'Confirm',
         APP_continue_btn: 'Continue',
         APP_reset_btn: 'Back to menu',
-        APP_no: 'No',
-        APP_yes: 'Yes',
+        APP_finish_btn: 'Finish',
 
         LOGIN_title: 'Lung Cancer Prediction Project',
         LOGIN_email: 'Email',
@@ -54,6 +55,15 @@ export class TextManager {
         CLIENT_QUESTION_FORM2_alcohol_article: 'If the patient drinks 4 servings of alcohol at least 3 times a week he is considered an addicted to alcohol',
         CLIENT_QUESTION_FORM2_anxiety: 'Do you suffer from anxiety?',
         CLIENT_QUESTION_FORM2_anxiety_article: 'Symptoms of anxiety are extreme cold and heat waves, dizziness, extreme sitting in the mouth, and increased feeling of thirst. A feeling of stagnation and paralysis. Headaches and abdominal pain. Nausea, difficulty breathing, accelerated heartbeat, increased sweating, uncontrollable tremors and a feeling of suffocation and pressure in the upper body',
+    
+        CLIENT_QUESTION_FORM_RESULT_title: 'Recommendations',
+        CLIENT_QUESTION_FORM_RESULT_precentege_title: 'Results in percentage',
+        CLIENT_QUESTION_FORM_RESULT_precentege_negative_description: '',
+        CLIENT_QUESTION_FORM_RESULT_precentege_positive_description_1: 'Following the patientֿֿ\'s answers there is a probability of',
+        CLIENT_QUESTION_FORM_RESULT_precentege_positive_description_2: 'that the patient has lung cancer',
+        CLIENT_QUESTION_FORM_RESULT_system_advise_title: 'System recommendation',
+        CLIENT_QUESTION_FORM_RESULT_system_advise_negative_description: '',
+        CLIENT_QUESTION_FORM_RESULT_system_advise_positive_description: 'The patient is required to be referred for a computed tomography examination',
     };
 
     public static readonly he = {
@@ -61,13 +71,14 @@ export class TextManager {
         APP_admin: 'מנהל',
         APP_doctor: 'דוקטור',
         APP_client: 'לקוח',
+        APP_no: 'לא',
+        APP_yes: 'כן',
         APP_back_btn: 'חזור',
         APP_confirm_btn: 'אישור',
         APP_continue_btn: 'המשך',
         APP_reset_btn: 'חזור לתפריט חיפוש',
-        APP_no: 'לא',
-        APP_yes: 'כן',
-
+        APP_finish_btn: 'סיום',
+        
         LOGIN_title: 'פרוייקט לחיזוי סרטן ריאות',
         LOGIN_email: 'אימייל',
         LOGIN_email_required: 'חובה להזין אימייל',
@@ -110,5 +121,14 @@ export class TextManager {
         CLIENT_QUESTION_FORM2_alcohol_article: 'אם המטופל שותה 4 מנות אלכוהול לפחות 3 פעמים בשבוע הוא נחשב למכור לאלכוהול',
         CLIENT_QUESTION_FORM2_anxiety: 'האם אתה סובל מחרדות?',
         CLIENT_QUESTION_FORM2_anxiety_article: 'סימפטומים של חרדה הם גלי קור וחום קיצוניים, סחרחורות, יושב קיצוני בפה, ותחושת צמא מוגברת. תחושת קיפאון ושיתוק. כאבי ראש וכאבי בטן. בחילות, קשיי נשימה, דופק לב מואץ, הזעה מוגברת, רעידות בלתי נשלטות ותחושת מחנק ולחץ בפלג הגוף העליון',
+    
+        CLIENT_QUESTION_FORM_RESULT_title: 'המלצות למטופל',
+        CLIENT_QUESTION_FORM_RESULT_precentege_title: 'תוצאות באחוזים',
+        CLIENT_QUESTION_FORM_RESULT_precentege_negative_description: '',
+        CLIENT_QUESTION_FORM_RESULT_precentege_positive_description_1: 'בעקבות תשובות המטופל ישנה הסתברות של',
+        CLIENT_QUESTION_FORM_RESULT_precentege_positive_description_2: 'שהמטופל לוקה בסרטן ריאה',
+        CLIENT_QUESTION_FORM_RESULT_system_advise_title: 'המלצת המערכת',
+        CLIENT_QUESTION_FORM_RESULT_system_advise_negative_description: '',
+        CLIENT_QUESTION_FORM_RESULT_system_advise_positive_description: 'נדרש להפנות את המטופל לבדיקת טומוגרפיה ממוחשבת',
     };
 }
