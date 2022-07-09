@@ -1,6 +1,6 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { finalize, first, pluck, tap } from 'rxjs/operators';
+import { catchError, finalize, first, map, pluck, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { ClientService } from '../core/client-service';
 import { LanguageService } from '../core/language-service';
 import { DatabaseService } from '../services/database.service';
 import { StepEnum } from '../models/step.enum';
+import { EMPTY } from 'rxjs';
 
 @Component({
   selector: 'app-client-questionnaire',
@@ -40,6 +41,7 @@ export class ClientQuestionnaireComponent implements OnInit {
   loggedInUser!: Doctor | undefined;
   client!: Client | undefined;
   clientHealthCheckForm!: FormGroup;
+  precentege: number = 0;
 
   constructor(
     private readonly route: Router,
@@ -88,7 +90,6 @@ export class ClientQuestionnaireComponent implements OnInit {
   }
 
   checkStep1(): void {
-    let result = false;
     this.disabled = true;
 
     // http call to check probability for a follow-up questionnaire
@@ -103,14 +104,54 @@ export class ClientQuestionnaireComponent implements OnInit {
     ).pipe(
       first(),
       pluck('response'),
-      tap(response => result = Number(response) > 0.3),
-      tap(() => {
+      map(response => Number(response) > 0.3),
+      tap(result => {
         if (result) {
           this.setStep(StepEnum.CLIENT_QUESTIONNAIRE_2);
         }
         else {
           alert(this.textManager['CLIENT_QUESTION_FORM1_not_enough_chances']);
         }
+      }),
+      catchError(error => {
+        console.log(error);
+        alert(this.textManager['CLIENT_QUESTION_FORM_failed']);
+        return EMPTY;
+      })
+    ).subscribe(() => this.disabled = false);
+  }
+
+  checkStep2(): void {
+    this.disabled = true;
+
+    // http call to check probability for a follow-up questionnaire
+    this.http.get(
+      `http://127.0.0.1:5000/form2Probabillity?AGE=${this.client?.age}
+      &CITY=${this.client?.city}
+      &PASSIVE_SMOKING=${this.clientHealthCheckForm.get('PASSIVE_SMOKING')?.value}
+      &SADNESS=${this.clientHealthCheckForm.get('SADNESS')?.value}
+      &COUGHING=${this.clientHealthCheckForm.get('COUGHING')?.value}
+      &PHYSICHAL_ACTIVITY_DIFFICULTY=${this.clientHealthCheckForm.get('PHYSICHAL_ACTIVITY_DIFFICULTY')?.value}
+      &RICKETY_BONES=${this.clientHealthCheckForm.get('RICKETY_BONES')?.value}
+      &LOST=${this.clientHealthCheckForm.get('LOST')?.value}
+      &MARITAL_STATUS=${this.clientHealthCheckForm.get('MARITAL_STATUS')?.value}
+      &BASEMENT=${this.clientHealthCheckForm.get('BASEMENT')?.value}
+      &FAMILY_CANCER_HISTORY=${this.clientHealthCheckForm.get('FAMILY_CANCER_HISTORY')?.value}
+      &SMOKING=${this.clientHealthCheckForm.get('SMOKING')?.value}
+      &PHYSICHAL_ACTIVITY=${this.clientHealthCheckForm.get('PHYSICHAL_ACTIVITY')?.value}
+      &HAPINESS=${this.clientHealthCheckForm.get('HAPINESS')?.value}`
+    ).pipe(
+      first(),
+      pluck('response'),
+      tap(result => {
+          this.precentege = Number(result);
+          sessionStorage.setItem('precentege', JSON.stringify(this.precentege));
+          this.setStep(StepEnum.CLIENT_QUESTIONNAIRE_RESULT);
+      }),
+      catchError(error => {
+        console.log(error);
+        alert(this.textManager['CLIENT_QUESTION_FORM_failed']);
+        return EMPTY;
       })
     ).subscribe(() => this.disabled = false);
   }
@@ -133,6 +174,7 @@ export class ClientQuestionnaireComponent implements OnInit {
     this.client = undefined;
     this.clientHealthCheckForm?.reset();
     sessionStorage.removeItem('client');
+    sessionStorage.removeItem('precentege');
     sessionStorage.removeItem('clientHealthCheckForm');
   }
 
@@ -173,7 +215,7 @@ export class ClientQuestionnaireComponent implements OnInit {
       LOST: new FormControl(sessionData?.LOST ?? 0),
       MARITAL_STATUS: new FormControl(sessionData?.MARITAL_STATUS ?? 0),
       BASEMENT: new FormControl(sessionData?.BASEMENT ?? false),
-      FAMILY_LUNG_CANCER_HISTORY: new FormControl(sessionData?.FAMILY_LUNG_CANCER_HISTORY ?? false),
+      FAMILY_CANCER_HISTORY: new FormControl(sessionData?.FAMILY_CANCER_HISTORY ?? false),
       SMOKING: new FormControl(sessionData?.SMOKING ?? false),
       PHYSICHAL_ACTIVITY: new FormControl(sessionData?.PHYSICHAL_ACTIVITY ?? false),
       HAPINESS: new FormControl(sessionData?.HAPINESS ?? false),
@@ -182,5 +224,7 @@ export class ClientQuestionnaireComponent implements OnInit {
     this.clientHealthCheckForm.valueChanges.pipe(
       tap(value => sessionStorage.setItem('clientHealthCheckForm', JSON.stringify(value)))
     ).subscribe();
+
+    this.precentege = sessionStorage.getItem('precentege') ? Number(sessionStorage.getItem('precentege')) : 0;
   }
 }

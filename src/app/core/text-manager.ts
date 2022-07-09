@@ -62,10 +62,12 @@ export class TextManager {
         CLIENT_QUESTION_FORM2_LOST_title: 'Have you experienced any loss in recent years?',
         CLIENT_QUESTION_FORM2_MARITAL_STATUS_title: 'Marital Status',
         CLIENT_QUESTION_FORM2_BASEMENT_title: 'If you live in a private house, is there a basement in the house?',
-        CLIENT_QUESTION_FORM2_FAMILY_LUNG_CANCER_HISTORY_title: 'Is there or has been a family history of cancer?',
+        CLIENT_QUESTION_FORM2_FAMILY_CANCER_HISTORY_title: 'Is there or has been a family history of cancer?',
         CLIENT_QUESTION_FORM2_SMOKING_title: 'Do you smoke?',
         CLIENT_QUESTION_FORM2_PHYSICHAL_ACTIVITY_title: 'What level of exercise do you perform?',
         CLIENT_QUESTION_FORM2_HAPINESS_title: 'During the day, do you feel moments of happiness?',
+        
+        CLIENT_QUESTION_FORM_failed: 'An error occurred while calculating the results',
     
         CLIENT_QUESTION_FORM_RESULT_title: 'Recommendations',
         CLIENT_QUESTION_FORM_RESULT_precentege_title: 'Results in percentage',
@@ -139,10 +141,12 @@ export class TextManager {
         CLIENT_QUESTION_FORM2_LOST_title: 'האם אתה חווית אובדן כלשהו בשנים האחרונות?',
         CLIENT_QUESTION_FORM2_MARITAL_STATUS_title: 'מצב משפחתי',
         CLIENT_QUESTION_FORM2_BASEMENT_title: 'במידה ואתה מתגורר בבית פרטי, האם ישנו מרתף בבית?',
-        CLIENT_QUESTION_FORM2_FAMILY_LUNG_CANCER_HISTORY_title: 'האם יש או הייתה היסטוריה של סרטן במשפחה?',
+        CLIENT_QUESTION_FORM2_FAMILY_CANCER_HISTORY_title: 'האם יש או הייתה היסטוריה של סרטן במשפחה?',
         CLIENT_QUESTION_FORM2_SMOKING_title: 'האם אתה מעשן?',
         CLIENT_QUESTION_FORM2_PHYSICHAL_ACTIVITY_title: 'מה רמת הפעילות הגופנית שאתה מבצע?',
         CLIENT_QUESTION_FORM2_HAPINESS_title: 'במהלך היום, האם אתה מרגיש רגעי אושר?',
+        
+        CLIENT_QUESTION_FORM_failed: 'ארעה שגיאה בעת חישוב התוצאות',
 
         CLIENT_QUESTION_FORM_RESULT_title: 'המלצות למטופל',
         CLIENT_QUESTION_FORM_RESULT_precentege_title: 'תוצאות באחוזים',

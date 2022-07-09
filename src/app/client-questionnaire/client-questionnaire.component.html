@@ -40,7 +40,7 @@
         [disabled]="disabled" 
         [client]="client"
         [form]="clientHealthCheckForm"
-        (continue)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_RESULT);"
+        (continue)="checkStep2()"
         (back)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_1);"
         (reset)="reset()">
     </app-client-question-form2>
@@ -52,6 +52,7 @@
         [disabled]="disabled" 
         [client]="client"
         [form]="clientHealthCheckForm"
+        [precentege]="precentege"
         (continue)="goToReports()"
         (back)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_2);"
         (reset)="reset()">

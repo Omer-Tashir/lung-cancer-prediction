@@ -22,13 +22,14 @@ export class ClientQuestionFormResultComponent implements OnInit {
 
   @Input() form!: FormGroup;
 
+  @Input() precentege: number = 0;
+
   @Output() back: EventEmitter<void> = new EventEmitter();
 
   @Output() continue: EventEmitter<void> = new EventEmitter();
 
   @Output() reset: EventEmitter<void> = new EventEmitter();
 
-  precentege: number = 0.666;
 
   constructor( 
   ) {}
