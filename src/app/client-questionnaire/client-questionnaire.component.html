@@ -25,9 +25,10 @@
         [loggedInUser]="loggedInUser" 
         [textManager]="textManager" 
         [disabled]="disabled" 
+        [disabledClientQuestionForm1]="disabledClientQuestionForm1"
         [client]="client"
         [form]="clientHealthCheckForm"
-        (continue)="setStep(StepEnum.CLIENT_QUESTIONNAIRE_2);"
+        (continue)="checkStep1()"
         (back)="setStep(StepEnum.APPROVE_CLIENT_PRESONAL_DETAILS);"
         (reset)="reset()">
     </app-client-question-form1>

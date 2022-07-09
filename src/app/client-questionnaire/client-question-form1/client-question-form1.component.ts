@@ -21,6 +21,8 @@ export class ClientQuestionForm1Component {
 
   @Input() disabled: boolean = false;
 
+  @Input() disabledClientQuestionForm1: boolean = false;
+
   @Input() form!: FormGroup;
 
   @Output() back: EventEmitter<void> = new EventEmitter();

@@ -1,7 +1,9 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
-import { finalize, first, tap } from 'rxjs/operators';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { finalize, first, pluck, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Doctor } from '../models/doctor.interface';
 import { Client } from '../models/client.interface';
@@ -10,7 +12,6 @@ import { ClientService } from '../core/client-service';
 import { LanguageService } from '../core/language-service';
 import { DatabaseService } from '../services/database.service';
 import { StepEnum } from '../models/step.enum';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-questionnaire',
@@ -42,6 +43,7 @@ export class ClientQuestionnaireComponent implements OnInit {
 
   constructor(
     private readonly route: Router,
+    private readonly http: HttpClient,
     private readonly db: DatabaseService,
     private readonly authService: AuthService,
     private readonly clientService: ClientService,
@@ -85,7 +87,35 @@ export class ClientQuestionnaireComponent implements OnInit {
     ).subscribe();
   }
 
-  setStep(step: StepEnum) {
+  checkStep1(): void {
+    let result = false;
+    this.disabled = true;
+
+    // http call to check probability for a follow-up questionnaire
+    this.http.get(
+      `http://127.0.0.1:5000/form1Probabillity?AGE=${this.client?.age}
+      &CITY=${this.client?.city}
+      &PASSIVE_SMOKING=${this.clientHealthCheckForm.get('PASSIVE_SMOKING')?.value}
+      &SADNESS=${this.clientHealthCheckForm.get('SADNESS')?.value}
+      &COUGHING=${this.clientHealthCheckForm.get('COUGHING')?.value}
+      &PHYSICHAL_ACTIVITY_DIFFICULTY=${this.clientHealthCheckForm.get('PHYSICHAL_ACTIVITY_DIFFICULTY')?.value}
+      &RICKETY_BONES=${this.clientHealthCheckForm.get('RICKETY_BONES')?.value}`
+    ).pipe(
+      first(),
+      pluck('response'),
+      tap(response => result = Number(response) > 0.3),
+      tap(() => {
+        if (result) {
+          this.setStep(StepEnum.CLIENT_QUESTIONNAIRE_2);
+        }
+        else {
+          alert(this.textManager['CLIENT_QUESTION_FORM1_not_enough_chances']);
+        }
+      })
+    ).subscribe(() => this.disabled = false);
+  }
+
+  setStep(step: StepEnum): void {
     if (step === StepEnum.GET_CLIENT_ID) {
       this.removeSessionData();
     }
@@ -110,6 +140,14 @@ export class ClientQuestionnaireComponent implements OnInit {
     this.route.navigate(['reports']);
   }
 
+  get disabledClientQuestionForm1(): boolean {
+    return this.clientHealthCheckForm.controls['PHYSICHAL_ACTIVITY_DIFFICULTY'].invalid ||
+      this.clientHealthCheckForm.controls['RICKETY_BONES'].invalid ||
+      this.clientHealthCheckForm.controls['COUGHING'].invalid ||
+      this.clientHealthCheckForm.controls['SADNESS'].invalid ||
+      this.clientHealthCheckForm.controls['PASSIVE_SMOKING'].invalid
+  }
+
   ngOnInit(): void {
     this.loggedInUser = this.authService.getLoggedInUser();
     this.languageService.selectTextManager().subscribe(text => this.textManager = text);
@@ -124,16 +162,21 @@ export class ClientQuestionnaireComponent implements OnInit {
     }
 
     this.clientHealthCheckForm = new FormGroup({
-      hasCooling: new FormControl(sessionData?.hasCooling ?? false),
-      hasCough: new FormControl(sessionData?.hasCough ?? false),
-      hasChronicDiseases: new FormControl(sessionData?.hasChronicDiseases ?? false),
-      hasAsthma: new FormControl(sessionData?.hasAsthma ?? false),
-      smoking: new FormControl(sessionData?.smoking ?? ''),
-      smokingYears: new FormControl(sessionData?.smokingYears ?? 0),
-      smokingAmountPerDay: new FormControl(sessionData?.smokingAmountPerDay ?? 0),
-      asbestos: new FormControl(sessionData?.asbestos ?? false),
-      alcohol: new FormControl(sessionData?.alcohol ?? false),
-      anxiety: new FormControl(sessionData?.anxiety ?? false),
+      // STEP 1
+      PHYSICHAL_ACTIVITY_DIFFICULTY: new FormControl(sessionData?.PHYSICHAL_ACTIVITY_DIFFICULTY ?? null, Validators.required),
+      RICKETY_BONES: new FormControl(sessionData?.RICKETY_BONES ?? null, Validators.required),
+      COUGHING: new FormControl(sessionData?.COUGHING ?? null, Validators.required),
+      SADNESS: new FormControl(sessionData?.SADNESS ?? null, Validators.required),
+      PASSIVE_SMOKING: new FormControl(sessionData?.PASSIVE_SMOKING ?? null, Validators.required),
+
+      // STEP 2
+      LOST: new FormControl(sessionData?.LOST ?? 0),
+      MARITAL_STATUS: new FormControl(sessionData?.MARITAL_STATUS ?? 0),
+      BASEMENT: new FormControl(sessionData?.BASEMENT ?? false),
+      FAMILY_LUNG_CANCER_HISTORY: new FormControl(sessionData?.FAMILY_LUNG_CANCER_HISTORY ?? false),
+      SMOKING: new FormControl(sessionData?.SMOKING ?? false),
+      PHYSICHAL_ACTIVITY: new FormControl(sessionData?.PHYSICHAL_ACTIVITY ?? false),
+      HAPINESS: new FormControl(sessionData?.HAPINESS ?? false),
     });
 
     this.clientHealthCheckForm.valueChanges.pipe(

@@ -5,58 +5,72 @@
         <h2>{{textManager.CLIENT_QUESTION_FORM2_title}}</h2>
 
         <div class="data-wrapper">
-
-            <div class="smoke-wrapper">
-    
-                <h3>------------ {{textManager.CLIENT_QUESTION_FORM2_smoking_title}} ------------</h3>
-    
-                <div class="form-control">
-                    <mat-radio-group formControlName="smoking">
-                        <mat-radio-button value="smoking">{{textManager.CLIENT_QUESTION_FORM2_smoking}}</mat-radio-button>
-                        <mat-radio-button value="not_smoking">{{textManager.CLIENT_QUESTION_FORM2_not_smoking}}</mat-radio-button>
-                        <mat-radio-button value="past_smoking">{{textManager.CLIENT_QUESTION_FORM2_past_smoking}}</mat-radio-button>
-                    </mat-radio-group>
-                </div>
-    
-                <div class="form-control">
-                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_smoking_years}}</mat-label>
-                    <input matInput formControlName="smokingYears" type="number" />
-                </div>
-                
-                <div class="form-control">
-                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_smoking_amount_per_day}}</mat-label>
-                    <input matInput formControlName="smokingAmountPerDay" type="number" />
-                </div>
-                
-            </div>
     
             <div class="questions-wrapper">
-    
+
                 <div class="form-control">
-                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_asbestos}}</mat-label>
-                    <mat-radio-group formControlName="asbestos">
-                        <mat-radio-button value="false">{{textManager.APP_no}}</mat-radio-button>
-                        <mat-radio-button value="true">{{textManager.APP_yes}}</mat-radio-button>
+                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_LOST_title}}</mat-label>
+                    <mat-radio-group formControlName="LOST">
+                        <mat-radio-button value="IN_PAST_3_YEARS">{{textManager.APP_yes_in_last_3_years}}</mat-radio-button>
+                        <mat-radio-button value="MORE_THAN_3_YEARS">{{textManager.APP_more_than_3_years}}</mat-radio-button>
+                        <mat-radio-button value="NO">{{textManager.APP_no}}</mat-radio-button>
                     </mat-radio-group>
-                    <code>{{textManager.CLIENT_QUESTION_FORM2_asbestos_article}}</code>
                 </div>
     
                 <div class="form-control">
-                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_alcohol}}</mat-label>
-                    <mat-radio-group formControlName="alcohol">
-                        <mat-radio-button value="false">{{textManager.APP_no}}</mat-radio-button>
-                        <mat-radio-button value="true">{{textManager.APP_yes}}</mat-radio-button>
+                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_MARITAL_STATUS_title}}</mat-label>
+                    <mat-radio-group formControlName="MARITAL_STATUS">
+                        <mat-radio-button value="SINGLE">{{textManager.APP_single}}</mat-radio-button>
+                        <mat-radio-button value="MARRIED">{{textManager.APP_married}}</mat-radio-button>
+                        <mat-radio-button value="DIVORCED">{{textManager.APP_divorced}}</mat-radio-button>
+                        <mat-radio-button value="WIOWER">{{textManager.APP_wiower}}</mat-radio-button>
                     </mat-radio-group>
-                    <code>{{textManager.CLIENT_QUESTION_FORM2_alcohol_article}}</code>
                 </div>
     
                 <div class="form-control">
-                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_anxiety}}</mat-label>
-                    <mat-radio-group formControlName="anxiety">
-                        <mat-radio-button value="false">{{textManager.APP_no}}</mat-radio-button>
-                        <mat-radio-button value="true">{{textManager.APP_yes}}</mat-radio-button>
+                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_BASEMENT_title}}</mat-label>
+                    <mat-radio-group formControlName="BASEMENT">
+                        <mat-radio-button value="YES">{{textManager.APP_yes}}</mat-radio-button>
+                        <mat-radio-button value="NO">{{textManager.APP_no}}</mat-radio-button>
+                        <mat-radio-button value="NOT_LIVING_IN_PRIVATE_HOUSE">{{textManager.APP_not_living_in_private_house}}</mat-radio-button>
                     </mat-radio-group>
-                    <code>{{textManager.CLIENT_QUESTION_FORM2_anxiety_article}}</code>
+                </div>
+    
+                <div class="form-control">
+                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_FAMILY_LUNG_CANCER_HISTORY_title}}</mat-label>
+                    <mat-radio-group formControlName="FAMILY_LUNG_CANCER_HISTORY">
+                        <mat-radio-button value="YES">{{textManager.APP_yes}}</mat-radio-button>
+                        <mat-radio-button value="NO">{{textManager.APP_no}}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <div class="form-control">
+                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_SMOKING_title}}</mat-label>
+                    <mat-radio-group formControlName="SMOKING">
+                        <mat-radio-button value="YES">{{textManager.APP_yes}}</mat-radio-button>
+                        <mat-radio-button value="NO">{{textManager.APP_no}}</mat-radio-button>
+                        <mat-radio-button value="OFTEN">{{textManager.APP_often}}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <div class="form-control">
+                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_PHYSICHAL_ACTIVITY_title}}</mat-label>
+                    <mat-radio-group formControlName="PHYSICHAL_ACTIVITY">
+                        <mat-radio-button value="NOT_AT_ALL">{{textManager.APP_not_at_all}}</mat-radio-button>
+                        <mat-radio-button value="ONCE_A_WEEK">{{textManager.APP_once_a_week}}</mat-radio-button>
+                        <mat-radio-button value="2-3_A_WEEK">{{textManager.APP_2_3_A_WEEK}}</mat-radio-button>
+                        <mat-radio-button value="AT_LEAST_4_TIMES_A_WEEK">{{textManager.APP_at_least_4_times_a_week}}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <div class="form-control">
+                    <mat-label>- {{textManager.CLIENT_QUESTION_FORM2_HAPINESS_title}}</mat-label>
+                    <mat-radio-group formControlName="HAPINESS">
+                        <mat-radio-button value="NOT_AT_ALL">{{textManager.APP_not_at_all}}</mat-radio-button>
+                        <mat-radio-button value="RARELY">{{textManager.APP_rarely}}</mat-radio-button>
+                        <mat-radio-button value="OFTEN">{{textManager.APP_often}}</mat-radio-button>
+                        <mat-radio-button value="REGULARLY">{{textManager.APP_regularly}}</mat-radio-button>
+                    </mat-radio-group>
                 </div>
     
             </div>

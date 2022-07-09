@@ -103,3 +103,9 @@ input.mat-input-element {
 .mat-select-arrow, .mat-form-field-appearance-legacy .mat-form-field-label, .mat-select-value-text, .mat-option-text, .mat-input-element:disabled, .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
   color: #383838; 
 }
+
+.mat-radio-group.column {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
